@@ -12,21 +12,34 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var habits: [Habit]? = [
-        Habit(title: "출석체크", isFinished: false),
-        Habit(title: "출석체크2", isFinished: false),
-        Habit(title: "출석체크3", isFinished: false),
-        Habit(title: "출석체크4", isFinished: false),
-        Habit(title: "출석체크5", isFinished: false),
-    ]
+    var habits: [Habit]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        habits = HabitsDataManager.shared.get()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: MainTableViewCell.className(), bundle: nil), forCellReuseIdentifier: MainTableViewCell.className())
+    
+        let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
+        self.navigationItem.setRightBarButton(addBarItem, animated: true)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        habits = HabitsDataManager.shared.get()
+        tableView.reloadData()
+    }
+    
+    @objc private func addHabit() {
+        
+        self.navigationController?.present(AddViewController.init(nibName: AddViewController.className(), bundle: nil), animated: true, completion: nil)
+    }
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -53,20 +66,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = habit
         
         return cell
-    }
-}
-
-class Habit {
-    var title: String = ""
-    var isFinished: Bool = false
-    
-    init(title: String, isFinished: Bool) {
-        self.title = title
-        self.isFinished = isFinished
-    }
-    
-    func changeIsFinished() {
-        isFinished = !isFinished
     }
 }
 
