@@ -10,10 +10,12 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var finishImageView: UIImageView!
     
     var viewModel: Habit? {
         didSet {
             titleLabel.text = viewModel?.title
+            finishImageView.isHidden = viewModel?.isFinished ?? false
         }
     }
     
@@ -24,8 +26,7 @@ class MainTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
 }
