@@ -17,8 +17,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        habits = HabitsDataManager.shared.get()
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: MainTableViewCell.className(), bundle: nil), forCellReuseIdentifier: MainTableViewCell.className())
