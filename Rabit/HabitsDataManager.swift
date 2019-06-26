@@ -43,20 +43,24 @@ class Habit: Codable {
 }
 
 class HabitsDataManager: NSObject {
-    static let KEY = "habits"
+    static let KEY_HABITS = "KEY_HABITS"
+    
     static let shared = HabitsDataManager()
     
-    private var habits: [Habit] = []
-    
-    func get() -> [Habit] {
-        return habits
+    private(set) var habits: [Habit]? {
+        get {
+            guard let data = UserDefaults.standard.object(forKey: HabitsDataManager.KEY_HABITS) as? Data,
+                let habits = try? JSONDecoder().decode([Habit].self, from: data) else { return nil }
+            return habits
+        }
+        set {
+            let data = try? JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(data, forKey: HabitsDataManager.KEY_HABITS)
+            UserDefaults.standard.synchronize()
+        }
     }
     
     func set(habit: Habit) {
-        habits.append(habit)
-    }
-    
-    func load(habits: [Habit]) {
-        self.habits = habits
+        habits?.append(habit)
     }
 }

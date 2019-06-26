@@ -9,10 +9,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
     
-    var habits: [Habit]?
+    var habits: [Habit]? // = HabitsDataManager.shared.habits    // 값을 참조하기만 할 뿐, 함수를 실행하지는 않는구나.
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,6 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.className())
-//        tableView.register(UINib(nibName: MainTableViewCell.className(), bundle: nil), forCellReuseIdentifier: MainTableViewCell.className())
     
         let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
         self.navigationItem.setRightBarButton(addBarItem, animated: true)
@@ -30,7 +28,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        habits = HabitsDataManager.shared.get()
+        habits = HabitsDataManager.shared.habits
         tableView.reloadData()
     }
     
