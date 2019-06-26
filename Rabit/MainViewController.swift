@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: MainTableViewCell.className(), bundle: nil), forCellReuseIdentifier: MainTableViewCell.className())
+        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.className())
+//        tableView.register(UINib(nibName: MainTableViewCell.className(), bundle: nil), forCellReuseIdentifier: MainTableViewCell.className())
     
         let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
         self.navigationItem.setRightBarButton(addBarItem, animated: true)
@@ -55,7 +56,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96
+        return MainTableViewCell.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
