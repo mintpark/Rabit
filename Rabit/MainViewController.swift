@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        habits = HabitsDataManager.shared.habits
+        habits = HabitsDataManager.shared.habits    // MARK: refactor
         tableView.reloadData()
     }
     
@@ -41,20 +41,8 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let habit = habits?[safe: indexPath.row],
-            let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else { return }
-        habit.changeIsFinished()
-        cell.viewModel = habit
-        cell.reloadInputViews()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return habits?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return MainTableViewCell.height
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,6 +51,34 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = habit
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let habit = habits?[safe: indexPath.row],
+            let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else { return }
+        habit.changeIsFinished()
+        cell.viewModel = habit
+        cell.reloadInputViews()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            HabitsDataManager.shared.remove(at: indexPath)
+            habits = HabitsDataManager.shared.habits    // MARK: refactor
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            ()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return MainTableViewCell.height
     }
 }
 

@@ -63,4 +63,8 @@ class HabitsDataManager: NSObject {
     func set(habit: Habit) {
         habits?.append(habit)
     }
+    
+    func remove(at indexPath: IndexPath) {
+        habits?.remove(at: indexPath.row)
+    }
 }
