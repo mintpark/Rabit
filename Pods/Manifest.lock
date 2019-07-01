@@ -1,16 +1,35 @@
 PODS:
+  - KakaoOpenSDK (1.12.0):
+    - KakaoOpenSDK/KakaoCommon (= 1.12.0)
+    - KakaoOpenSDK/KakaoLink (= 1.12.0)
+    - KakaoOpenSDK/KakaoMessageTemplate (= 1.12.0)
+    - KakaoOpenSDK/KakaoNavi (= 1.12.0)
+    - KakaoOpenSDK/KakaoOpenSDK (= 1.12.0)
+    - KakaoOpenSDK/KakaoS2 (= 1.12.0)
+  - KakaoOpenSDK/KakaoCommon (1.12.0)
+  - KakaoOpenSDK/KakaoLink (1.12.0):
+    - KakaoOpenSDK/KakaoCommon
+  - KakaoOpenSDK/KakaoMessageTemplate (1.12.0)
+  - KakaoOpenSDK/KakaoNavi (1.12.0):
+    - KakaoOpenSDK/KakaoCommon
+  - KakaoOpenSDK/KakaoOpenSDK (1.12.0)
+  - KakaoOpenSDK/KakaoS2 (1.12.0):
+    - KakaoOpenSDK/KakaoCommon
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
+  - KakaoOpenSDK (= 1.12.0)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - KakaoOpenSDK
     - SnapKit
 
 SPEC CHECKSUMS:
+  KakaoOpenSDK: 7daf30dcf089b46f63587a91758895640d2f1e7c
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 3daa3d9d42132c5926f4f6f189cc7a2805c16539
+PODFILE CHECKSUM: f475d0984c91752671461b1220058da9b11cf589
 
 COCOAPODS: 1.6.1

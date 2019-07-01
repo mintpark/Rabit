@@ -4,5 +4,6 @@ platform :ios, '10.0'
 target 'Rabit' do
 
   pod 'SnapKit', '~> 5.0.0'
+  pod 'KakaoOpenSDK', '1.12.0'
 
 end
