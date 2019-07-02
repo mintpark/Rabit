@@ -15,7 +15,9 @@
 		0410AD45223F9D900021F91A /* HabitsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410AD44223F9D900021F91A /* HabitsDataManager.swift */; };
 		044ECB85223B51CA00227991 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044ECB83223B51CA00227991 /* AddViewController.swift */; };
 		044ECB86223B51CA00227991 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044ECB84223B51CA00227991 /* AddViewController.xib */; };
+		04696D1422C996A000247A8E /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1322C996A000247A8E /* LoginManager.swift */; };
 		04696D1622C996FD00247A8E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04696D1522C996FD00247A8E /* MainViewController.xib */; };
+		04696D1822CB62EE00247A8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1722CB62EE00247A8E /* Constants.swift */; };
 		C00D59B8A72930F7BBD73317 /* Pods_Rabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +32,9 @@
 		0410AD44223F9D900021F91A /* HabitsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsDataManager.swift; sourceTree = "<group>"; };
 		044ECB83223B51CA00227991 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		044ECB84223B51CA00227991 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		04696D1322C996A000247A8E /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		04696D1522C996FD00247A8E /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		04696D1722CB62EE00247A8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		834F72FF1EBEBDA3F26C3FEC /* Pods-Rabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.release.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.release.xcconfig"; sourceTree = "<group>"; };
 		ED673C1531A319520B19EE61 /* Pods-Rabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.debug.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,8 @@
 				044ECB83223B51CA00227991 /* AddViewController.swift */,
 				044ECB84223B51CA00227991 /* AddViewController.xib */,
 				0410AD44223F9D900021F91A /* HabitsDataManager.swift */,
+				04696D1322C996A000247A8E /* LoginManager.swift */,
+				04696D1722CB62EE00247A8E /* Constants.swift */,
 			);
 			path = Rabit;
 			sourceTree = "<group>";
@@ -226,7 +232,9 @@
 				040A492B2239FF90008C7E03 /* MainTableViewCell.swift in Sources */,
 				044ECB85223B51CA00227991 /* AddViewController.swift in Sources */,
 				040A49182239F2E1008C7E03 /* AppDelegate.swift in Sources */,
+				04696D1822CB62EE00247A8E /* Constants.swift in Sources */,
 				0410AD45223F9D900021F91A /* HabitsDataManager.swift in Sources */,
+				04696D1422C996A000247A8E /* LoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
