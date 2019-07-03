@@ -47,10 +47,10 @@ class HabitsDataManager: NSObject {
     
     static let shared = HabitsDataManager()
     
-    private(set) var habits: [Habit]? {
+    private(set) var habits: [Habit] {
         get {
             guard let data = UserDefaults.standard.object(forKey: HabitsDataManager.KEY_HABITS) as? Data,
-                let habits = try? JSONDecoder().decode([Habit].self, from: data) else { return nil }
+                let habits = try? JSONDecoder().decode([Habit].self, from: data) else { return [] }
             return habits
         }
         set {
@@ -61,10 +61,10 @@ class HabitsDataManager: NSObject {
     }
     
     func set(habit: Habit) {
-        habits?.append(habit)
+        habits.append(habit)
     }
     
     func remove(at indexPath: IndexPath) {
-        habits?.remove(at: indexPath.row)
+        habits.remove(at: indexPath.row)
     }
 }

@@ -40,6 +40,10 @@ class AddViewController: UIViewController {
         endDatePicker.isHidden = true
     }
     
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func startDateTapped(_ sender: UIButton) {
         startDatePicker.isHidden = sender.isSelected
         sender.isSelected = !sender.isSelected

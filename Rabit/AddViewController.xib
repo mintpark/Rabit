@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,11 +26,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="946"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu3-nX-XOo">
+                    <rect key="frame" x="327" y="20" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="Lzr-oJ-pzp"/>
+                        <constraint firstAttribute="width" constant="32" id="a1m-nj-2Jg"/>
+                    </constraints>
+                    <state key="normal" title="X"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="5dc-4C-yCZ"/>
+                    </connections>
+                </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amf-kV-HyJ">
-                    <rect key="frame" x="0.0" y="20" width="375" height="926"/>
+                    <rect key="frame" x="0.0" y="52" width="375" height="894"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvy-pc-Eni" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="926"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="894"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B5P-Kd-0ek">
                                     <rect key="frame" x="16" y="78" width="343" height="240.5"/>
@@ -321,8 +332,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="amf-kV-HyJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0On-oj-hOg"/>
+                <constraint firstItem="amf-kV-HyJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="0On-oj-hOg"/>
                 <constraint firstItem="amf-kV-HyJ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="TCd-Ki-uEn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cu3-nX-XOo" secondAttribute="trailing" constant="16" id="XtK-xl-uwM"/>
+                <constraint firstItem="Cu3-nX-XOo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ln8-yc-Aq9"/>
                 <constraint firstItem="amf-kV-HyJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="o3r-t1-fSA"/>
                 <constraint firstItem="amf-kV-HyJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xzP-Q0-xAz"/>
             </constraints>

@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        let nav = UINavigationController.init()
         let mainVC = MainViewController(nibName: MainViewController.className(), bundle: nil)
-        window?.rootViewController = mainVC
+        nav.pushViewController(mainVC, animated: true)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
-        
-        LoginManager.shared.loginButtonClicked()
         
         KOSession.shared()?.clientSecret = Constants.kakaoSecretKey
         
