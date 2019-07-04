@@ -54,6 +54,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            LoginManager.shared.loginButtonClicked()
+        } else if indexPath.row == 1 {
+            LoginManager.shared.logoutButtonClicked()
+        }
+        return
+        
         guard let habit = habits?[safe: indexPath.row],
             let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else { return }
         habit.changeIsFinished()
@@ -81,23 +88,3 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return MainTableViewCell.height
     }
 }
-
-////
-extension Array {
-    subscript(safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
-
-////
-protocol Nameable {
-    static func className() -> String
-}
-
-extension Nameable {
-    static func className() -> String {
-        return String(describing: self)
-    }
-}
-
-extension NSObject: Nameable {}
