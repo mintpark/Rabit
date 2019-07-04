@@ -12,7 +12,26 @@ import KakaoOpenSDK
 final class LoginManager {
     static let shared = LoginManager()
     
+    private let KEY_IS_LOGIN = "KEY_IS_LOGIN"
+    
+    var isLogined: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: KEY_IS_LOGIN)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: KEY_IS_LOGIN)
+        }
+    }
+    
     func loginButtonClicked() {
+        loginKakao()
+    }
+    
+    func logoutButtonClicked() {
+        logoutKakao()
+    }
+    
+    func loginKakao() {
         let session: KOSession = KOSession.shared()
         if session.isOpen() {
             session.close()
@@ -20,11 +39,24 @@ final class LoginManager {
         
         session.open { (error) in
             if session.isOpen() {
+                self.isLogined = true
                 print("login success")
             } else {
-                print("login fail")
+                self.isLogined = false
+                print("login fail: \(error.debugDescription)")
             }
         }
-        
+    }
+    
+    func logoutKakao() {
+        let session: KOSession = KOSession.shared()
+        session.logoutAndClose { (success, error) in
+            if success {
+                self.isLogined = false
+                print("logout success")
+            } else {
+                print("logout fail: \(error.debugDescription)")
+            }
+        }
     }
 }
