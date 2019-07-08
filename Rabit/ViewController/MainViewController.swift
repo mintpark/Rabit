@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.className())
+        tableView.register(MainTableHeaderView.self, forHeaderFooterViewReuseIdentifier: MainTableHeaderView.className())
     
         let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
         self.navigationItem.setRightBarButton(addBarItem, animated: true)
@@ -51,6 +52,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.viewModel = habit
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MainTableHeaderView.className()) as? MainTableHeaderView else { return nil }
+        
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return MainTableHeaderView.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

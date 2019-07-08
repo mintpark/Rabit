@@ -20,6 +20,7 @@
 		04696D1822CB62EE00247A8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1722CB62EE00247A8E /* Constants.swift */; };
 		04696D1B22CDC2E000247A8E /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1A22CDC2E000247A8E /* Nameable.swift */; };
 		04696D1D22CDC32400247A8E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1C22CDC32400247A8E /* ArrayExtensions.swift */; };
+		04696D2222CDC3D900247A8E /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D2122CDC3D900247A8E /* MainTableHeaderView.swift */; };
 		C00D59B8A72930F7BBD73317 /* Pods_Rabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		04696D1722CB62EE00247A8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04696D1A22CDC2E000247A8E /* Nameable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		04696D1C22CDC32400247A8E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		04696D2122CDC3D900247A8E /* MainTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
 		834F72FF1EBEBDA3F26C3FEC /* Pods-Rabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.release.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.release.xcconfig"; sourceTree = "<group>"; };
 		ED673C1531A319520B19EE61 /* Pods-Rabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.debug.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		040A49162239F2E1008C7E03 /* Rabit */ = {
 			isa = PBXGroup;
 			children = (
+				04696D4122CED95C00247A8E /* Common */,
 				04696D1F22CDC37600247A8E /* Manager */,
 				04696D2022CDC38900247A8E /* View */,
 				04696D1E22CDC34800247A8E /* ViewController */,
@@ -85,7 +88,6 @@
 				040A49202239F2E1008C7E03 /* LaunchScreen.storyboard */,
 				040A491E2239F2E1008C7E03 /* Assets.xcassets */,
 				040A49172239F2E1008C7E03 /* AppDelegate.swift */,
-				04696D1722CB62EE00247A8E /* Constants.swift */,
 			);
 			path = Rabit;
 			sourceTree = "<group>";
@@ -123,8 +125,17 @@
 			isa = PBXGroup;
 			children = (
 				040A49292239FF90008C7E03 /* MainTableViewCell.swift */,
+				04696D2122CDC3D900247A8E /* MainTableHeaderView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04696D4122CED95C00247A8E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				04696D1722CB62EE00247A8E /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		776486B7CF4D2A6BDB7BAFB2 /* Frameworks */ = {
@@ -275,6 +286,7 @@
 				04696D1B22CDC2E000247A8E /* Nameable.swift in Sources */,
 				04696D1D22CDC32400247A8E /* ArrayExtensions.swift in Sources */,
 				04696D1422C996A000247A8E /* LoginManager.swift in Sources */,
+				04696D2222CDC3D900247A8E /* MainTableHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
