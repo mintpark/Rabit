@@ -17,7 +17,7 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
         let labels: [UILabel] = (0..<DateViewModel.DATE_COUNT).map { (i) -> UILabel in
             var label = UILabel(frame: .zero)
             label.textAlignment = .center
-            label.text = String(viewModel.days[safe: i]?.day ?? 0)
+            label.text = String(viewModel.days[safe: i]?.day ?? 1)
             return label
         }
         
@@ -68,16 +68,14 @@ extension MainTableHeaderView {
             let todayComponents = calendar.dateComponents([.month, .year], from: date)
             year = todayComponents.year ?? 0
             month = todayComponents.month ?? 0
-
-            var dateArray = Array<HeaderDate>()
+            
             (0..<DateViewModel.DATE_COUNT).forEach { (index) in
                 let dayOfWeekString = ["", "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
                 let date = Date(timeIntervalSinceNow: TimeInterval(60*60*24*(index-2)))
                 let components = calendar.dateComponents([.weekday, .day], from: date)
                 let dayOfWeek = dayOfWeekString[components.weekday ?? 0]
-                dateArray.append(.init(dateOfWeek: dayOfWeek, day: components.day ?? 1, isSelected: false))
+                days.append(.init(dateOfWeek: dayOfWeek, day: components.day ?? 1, isSelected: false))
             }
-            days = dateArray
         }
     }
 }
