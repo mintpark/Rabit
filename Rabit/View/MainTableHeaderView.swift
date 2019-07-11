@@ -10,15 +10,14 @@ import UIKit
 import SnapKit
 
 final class MainTableHeaderView: UITableViewHeaderFooterView {
-    static let height: CGFloat = 44
+    static let height: CGFloat = 90
     static var viewModel = DateViewModel(Date())
     
     private var stackView: UIStackView = {
-        let labels: [UILabel] = (0..<DateViewModel.DATE_COUNT).map { (i) -> UILabel in
-            var label = UILabel(frame: .zero)
-            label.textAlignment = .center
-            label.text = String(viewModel.days[safe: i]?.day ?? 1)
-            return label
+        let dateViews: [DateView] = (0..<DateViewModel.DATE_COUNT).map { (i) -> DateView in
+            let date = viewModel.days[safe: i]
+            let view = DateView(day: String(date?.day ?? 1), date: date?.dateOfWeek ?? "")
+            return view
         }
         
         let stack = UIStackView()
@@ -27,7 +26,7 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
         stack.spacing = 0
         stack.alignment = .center
         (0..<DateViewModel.DATE_COUNT).forEach({ (i) in
-            stack.addArrangedSubview(labels[safe: i] ?? UILabel(frame: .zero))
+            stack.addArrangedSubview(dateViews[safe: i] ?? UIView(frame: .zero))
         })
         
         return stack
@@ -76,6 +75,49 @@ extension MainTableHeaderView {
                 let dayOfWeek = dayOfWeekString[components.weekday ?? 0]
                 days.append(.init(dateOfWeek: dayOfWeek, day: components.day ?? 1, isSelected: false))
             }
+        }
+    }
+    
+    private class DateView: UIView {
+        private let HEIGHT_DAY: CGFloat = 30
+        private let HEIGHT_DATE: CGFloat = 60
+        
+        private var dayLabel: UILabel!
+        private var dateButton: UIButton!
+        
+        init(day: String, date: String) {
+            super.init(frame: .zero)
+            
+            dayLabel = UILabel()
+            dayLabel.text = day
+            dayLabel.textAlignment = .center
+            
+            dateButton = UIButton()
+            dateButton.setTitle(date, for: .normal)
+            dateButton.setTitleColor(.black, for: .normal)
+            dateButton.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
+            
+            addSubview(dayLabel)
+            dayLabel.snp.makeConstraints { (make) in
+                make.top.equalToSuperview()
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.height.equalTo(HEIGHT_DAY)
+            }
+            
+            addSubview(dateButton)
+            dateButton.snp.makeConstraints { (make) in
+                make.centerX.equalToSuperview()
+                make.centerY.equalToSuperview().offset(HEIGHT_DATE)
+            }
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        @objc func dateButtonTapped() {
+            dateButton.backgroundColor = .green
         }
     }
 }
