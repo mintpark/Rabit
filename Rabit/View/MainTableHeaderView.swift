@@ -20,14 +20,12 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
             return view
         }
         
-        let stack = UIStackView()
+        let stack = UIStackView(arrangedSubviews: dateViews)
         stack.axis = .horizontal
         stack.distribution = UIStackViewDistribution.fillEqually
         stack.spacing = 0
         stack.alignment = .center
-        (0..<DateViewModel.DATE_COUNT).forEach({ (i) in
-            stack.addArrangedSubview(dateViews[safe: i] ?? UIView(frame: .zero))
-        })
+        stack.translatesAutoresizingMaskIntoConstraints = false
         
         return stack
     }()
@@ -99,17 +97,20 @@ extension MainTableHeaderView {
             
             addSubview(dayLabel)
             dayLabel.snp.makeConstraints { (make) in
-                make.top.equalToSuperview()
-                make.leading.equalToSuperview()
-                make.trailing.equalToSuperview()
+                make.top.leading.trailing.equalToSuperview()
                 make.height.equalTo(HEIGHT_DAY)
             }
             
             addSubview(dateButton)
             dateButton.snp.makeConstraints { (make) in
-                make.centerX.equalToSuperview()
-                make.centerY.equalToSuperview().offset(HEIGHT_DATE)
+                make.top.equalToSuperview().offset(HEIGHT_DAY)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalTo(HEIGHT_DATE)
             }
+        }
+        
+        override var intrinsicContentSize: CGSize {
+            return CGSize(width: 0, height: HEIGHT_DAY+HEIGHT_DATE)
         }
         
         required init?(coder aDecoder: NSCoder) {
