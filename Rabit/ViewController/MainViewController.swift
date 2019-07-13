@@ -24,6 +24,11 @@ class MainViewController: UIViewController {
         let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
         self.navigationItem.setRightBarButton(addBarItem, animated: true)
         
+        let yearLabelItem = UIBarButtonItem(title: String(format: "%d", MainTableHeaderView.viewModel.year), style: .plain, target: self, action: nil)
+        yearLabelItem.tintColor = .black
+        self.navigationItem.setLeftBarButton(yearLabelItem, animated: true)
+        
+        self.navigationItem.title = String(format: "%d", MainTableHeaderView.viewModel.month)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +39,6 @@ class MainViewController: UIViewController {
     }
     
     @objc private func addHabit() {
-        
         self.navigationController?.present(AddViewController.init(nibName: AddViewController.className(), bundle: nil), animated: true, completion: nil)
     }
     
