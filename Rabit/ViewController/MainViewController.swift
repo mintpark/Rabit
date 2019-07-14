@@ -69,13 +69,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            LoginManager.shared.loginButtonClicked()
-        } else if indexPath.row == 1 {
-            LoginManager.shared.logoutButtonClicked()
-        }
-        return
-        
         guard let habit = habits?[safe: indexPath.row],
             let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCell else { return }
         habit.changeIsFinished()

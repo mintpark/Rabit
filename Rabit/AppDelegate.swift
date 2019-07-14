@@ -18,10 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let nav = UINavigationController.init()
         let mainVC = MainViewController(nibName: MainViewController.className(), bundle: nil)
+        mainVC.title = "main1"
+        
+        let nav = UINavigationController.init()
         nav.pushViewController(mainVC, animated: true)
-        window?.rootViewController = nav
+        
+        let tabbarController = UITabBarController(nibName: nil, bundle: nil)
+        tabbarController.addChildViewController(nav)
+        tabbarController.selectedIndex = 0
+        
+        window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
         
         KOSession.shared()?.clientSecret = Constants.kakaoSecretKey
