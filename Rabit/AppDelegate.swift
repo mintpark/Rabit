@@ -20,12 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainVC = MainViewController(nibName: MainViewController.className(), bundle: nil)
         mainVC.title = "main1"
+        let mainNav = UINavigationController.init()
+        mainNav.pushViewController(mainVC, animated: true)
         
-        let nav = UINavigationController.init()
-        nav.pushViewController(mainVC, animated: true)
+        let statVC = StatisticViewController(nibName: nil, bundle: nil)
+        statVC.title = "Statistic"
+        let statNav = UINavigationController.init()
+        statNav.navigationBar.prefersLargeTitles = true
+        statNav.pushViewController(statVC, animated: true)
         
         let tabbarController = UITabBarController(nibName: nil, bundle: nil)
-        tabbarController.addChildViewController(nav)
+        tabbarController.addChildViewController(mainNav)
+        tabbarController.addChildViewController(statNav)
         tabbarController.selectedIndex = 0
         
         window?.rootViewController = tabbarController
