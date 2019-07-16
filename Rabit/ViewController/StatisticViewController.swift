@@ -12,6 +12,8 @@ import SnapKit
 final class StatisticViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var tableView = UITableView(frame: .zero)
     
+    var habits: [Habit]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +27,25 @@ final class StatisticViewController: UIViewController, UITableViewDelegate, UITa
             make.edges.equalToSuperview()
         }
     }
+    
+    #warning("habits 참조하는 더 좋은 방법?")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        habits = HabitsDataManager.shared.habits
+        tableView.reloadData()
+    }
 
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return habits?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatisticTableViewCell.className(), for: indexPath) as? StatisticTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatisticTableViewCell.className(), for: indexPath) as? StatisticTableViewCell,
+            let habit = habits?[safe: indexPath.row] else { return UITableViewCell() }
         
-        let viewModel = StatisticViewController.StatisticViewModel()
+        let viewModel = StatisticViewController.StatisticViewModel(habit)
         cell.configure(viewModel)
         
         return cell
@@ -58,8 +69,18 @@ final class StatisticViewController: UIViewController, UITableViewDelegate, UITa
 
 extension StatisticViewController {
     final class StatisticViewModel {
-        var title: String = "test habit 1"
-        var completeRatio: Int = 19
+        var title: String = ""
+        var completeRatio: Int = 0
+        
+        init(_ habit: Habit) {
+            self.title = habit.title
+            self.completeRatio = {
+                let dateTotal: Float = 1
+                let dateComplete: Float = 1
+                
+                return Int(ceilf(dateTotal/dateComplete))
+            }()
+        }
     }
 }
 
