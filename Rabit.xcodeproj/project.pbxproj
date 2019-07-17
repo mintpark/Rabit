@@ -22,6 +22,7 @@
 		04696D1D22CDC32400247A8E /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1C22CDC32400247A8E /* ArrayExtensions.swift */; };
 		04696D2222CDC3D900247A8E /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D2122CDC3D900247A8E /* MainTableHeaderView.swift */; };
 		04856B8522DC0EF4003585CB /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04856B8422DC0EF4003585CB /* StatisticViewController.swift */; };
+		04DC1BCC22DD4FC100F54255 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC1BCB22DD4FC100F54255 /* EditViewController.swift */; };
 		C00D59B8A72930F7BBD73317 /* Pods_Rabit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		04696D1C22CDC32400247A8E /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		04696D2122CDC3D900247A8E /* MainTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
 		04856B8422DC0EF4003585CB /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		04DC1BCB22DD4FC100F54255 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		834F72FF1EBEBDA3F26C3FEC /* Pods-Rabit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.release.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.release.xcconfig"; sourceTree = "<group>"; };
 		ED673C1531A319520B19EE61 /* Pods-Rabit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rabit.debug.xcconfig"; path = "Target Support Files/Pods-Rabit/Pods-Rabit.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD30839E9004E140A4C03F1 /* Pods_Rabit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rabit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				040A49192239F2E1008C7E03 /* MainViewController.swift */,
 				04696D1522C996FD00247A8E /* MainViewController.xib */,
 				04856B8422DC0EF4003585CB /* StatisticViewController.swift */,
+				04DC1BCB22DD4FC100F54255 /* EditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				04696D1822CB62EE00247A8E /* Constants.swift in Sources */,
 				0410AD45223F9D900021F91A /* HabitsDataManager.swift in Sources */,
 				04696D1B22CDC2E000247A8E /* Nameable.swift in Sources */,
+				04DC1BCC22DD4FC100F54255 /* EditViewController.swift in Sources */,
 				04696D1D22CDC32400247A8E /* ArrayExtensions.swift in Sources */,
 				04696D1422C996A000247A8E /* LoginManager.swift in Sources */,
 				04696D2222CDC3D900247A8E /* MainTableHeaderView.swift in Sources */,
