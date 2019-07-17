@@ -28,8 +28,6 @@ class MainTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         addSubview(titleLabel)
-        addSubview(finishImageView)
-        
         titleLabel.snp.makeConstraints { (make) in
             make.height.equalTo(40)
             make.width.lessThanOrEqualTo(UIScreen.main.bounds.width - 40 - MainTableViewCell.margin*2)
@@ -37,6 +35,7 @@ class MainTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         
+        addSubview(finishImageView)
         finishImageView.snp.makeConstraints { (make) in
             make.height.equalTo(40)
             make.width.equalTo(40)

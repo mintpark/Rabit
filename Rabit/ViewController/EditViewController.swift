@@ -58,8 +58,9 @@ final class EditTableViewCell: UITableViewCell {
     
     static let HEIGHT: CGFloat = 50
     
-    func configure(_ data: Habit) {
-        titleLabel.text = data.title
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(16)
@@ -67,9 +68,6 @@ final class EditTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         
-        ratioLabel.text = String(format: "%d", 12)
-        ratioLabel.textAlignment = .right
-        ratioLabel.backgroundColor = .red
         addSubview(ratioLabel)
         ratioLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(titleLabel.snp.trailing)
@@ -77,7 +75,6 @@ final class EditTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         
-        arrowImageView.backgroundColor = .gray
         addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { (make) in
             make.leading.equalTo(ratioLabel.snp.trailing)
@@ -85,5 +82,19 @@ final class EditTableViewCell: UITableViewCell {
             make.height.width.equalTo(30)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(_ data: Habit) {
+        titleLabel.text = data.title
+        
+        ratioLabel.text = String(format: "%d", 12)
+        ratioLabel.textAlignment = .right
+        ratioLabel.backgroundColor = .red
+        
+        arrowImageView.backgroundColor = .gray
     }
 }

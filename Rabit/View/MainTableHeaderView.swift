@@ -13,25 +13,23 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
     static let height: CGFloat = 90
     static var viewModel = DateViewModel(Date())
     
-    private var stackView: UIStackView = {
-        let dateViews: [DateView] = (0..<DateViewModel.DATE_COUNT).map { (i) -> DateView in
-            let date = viewModel.days[safe: i]
-            let view = DateView(day: String(date?.day ?? 1), date: date?.dateOfWeek ?? "")
-            return view
-        }
-        
-        let stack = UIStackView(arrangedSubviews: dateViews)
-        stack.axis = .horizontal
-        stack.distribution = UIStackViewDistribution.fillEqually
-        stack.spacing = 0
-        stack.alignment = .center
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stack
-    }()
+    private var stackView: UIStackView! // = UIStackView(arrangedSubviews: dateViews)
+    private var dateViews: [DateView]! // = [DateView]()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        
+        dateViews = (0..<MainTableHeaderView.DateViewModel.DATE_COUNT).map ({ (i) in
+            let date = MainTableHeaderView.viewModel.days[safe: i]
+            return DateView(day: String(date?.day ?? 1), date: date?.dateOfWeek ?? "")
+        })
+        
+        stackView = UIStackView(arrangedSubviews: dateViews)
+        stackView.axis = .horizontal
+        stackView.distribution = UIStackViewDistribution.fillEqually
+        stackView.spacing = 0
+        stackView.alignment = .center
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
@@ -44,6 +42,14 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    #warning("DateViewModel 구조 바꿔서 date 하나로 업데이트 칠 수 있어야함")
+    func update(_ date: Date) {
+        (0..<DateViewModel.DATE_COUNT).forEach { (i) in
+            let date = MainTableHeaderView.viewModel.days[i]
+            let dateView = dateViews[i]
+            dateView.update(day: String(format: "%d", date.day), date: date.dateOfWeek)
+        }
+    }
 }
 
 extension MainTableHeaderView {
@@ -119,6 +125,10 @@ extension MainTableHeaderView {
         
         @objc func dateButtonTapped() {
             dateButton.backgroundColor = .green
+        }
+        
+        func update(day: String, date: String) {
+            // update label
         }
     }
 }

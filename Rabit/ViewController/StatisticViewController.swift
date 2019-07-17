@@ -88,8 +88,9 @@ final class StatisticTableViewCell: UITableViewCell {
     private lazy var titleLabel = UILabel(frame: .zero)
     private lazy var ratioLabel = UILabel(frame: .zero)
     
-    func configure(_ viewModel: StatisticViewController.StatisticViewModel) {
-        titleLabel.text = viewModel.title
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(16)
@@ -97,13 +98,21 @@ final class StatisticTableViewCell: UITableViewCell {
             make.height.equalTo(20)
         }
         
-        ratioLabel.text = String(format: "%d%", viewModel.completeRatio)
         addSubview(ratioLabel)
         ratioLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.trailing.equalTo(20)
             make.height.equalTo(20)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(_ viewModel: StatisticViewController.StatisticViewModel) {
+        titleLabel.text = viewModel.title
+        ratioLabel.text = String(format: "%d%", viewModel.completeRatio)
     }
 }
 
