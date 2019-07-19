@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func addHabit() {
-        self.navigationController?.present(AddViewController.init(nibName: AddViewController.className(), bundle: nil), animated: true, completion: nil)
+        self.navigationController?.present(AddViewController.init(nibName: AddViewController.className(), mode: .add), animated: true, completion: nil)
     }
     
 }

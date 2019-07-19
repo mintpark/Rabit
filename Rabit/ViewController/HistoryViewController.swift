@@ -1,5 +1,5 @@
 //
-//  EditViewController.swift
+//  HistoryViewController.swift
 //  Rabit
 //
 //  Created by Hayoung Park on 16/07/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private lazy var tableView = UITableView(frame: .zero)
     
     var habits: [Habit]?
@@ -18,7 +18,7 @@ final class EditViewController: UIViewController, UITableViewDelegate, UITableVi
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(EditTableViewCell.self, forCellReuseIdentifier: EditTableViewCell.className())
+        tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.className())
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -35,7 +35,7 @@ final class EditViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: EditTableViewCell.className(), for: indexPath) as? EditTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.className(), for: indexPath) as? HistoryTableViewCell,
             let habit = habits?[safe: indexPath.row] else { return UITableViewCell() }
         cell.configure(habit)
         
@@ -47,11 +47,18 @@ final class EditViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return EditTableViewCell.HEIGHT
+        return HistoryTableViewCell.HEIGHT
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editVC = AddViewController(nibName: AddViewController.className(), mode: .edit, habitIndex: indexPath.row)
+        
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.pushViewController(editVC, animated: true)
     }
 }
 
-final class EditTableViewCell: UITableViewCell {
+final class HistoryTableViewCell: UITableViewCell {
     private var titleLabel = UILabel(frame: .zero)
     private var ratioLabel = UILabel(frame: .zero)
     private var arrowImageView = UIImageView(frame: .zero)

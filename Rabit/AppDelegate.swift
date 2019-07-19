@@ -29,16 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         statNav.navigationBar.prefersLargeTitles = true
         statNav.pushViewController(statVC, animated: true)
         
-        let editVC = EditViewController(nibName: nil, bundle: nil)
-        editVC.title = "Edit"
-        let editNav = UINavigationController.init()
-        editNav.navigationBar.prefersLargeTitles = true
-        editNav.pushViewController(editVC, animated: true)
+        let historyVC = HistoryViewController(nibName: nil, bundle: nil)
+        historyVC.title = "History"
+        let historyNav = UINavigationController.init()
+        historyNav.navigationBar.prefersLargeTitles = true
+        historyNav.pushViewController(historyVC, animated: true)
         
         let tabbarController = UITabBarController(nibName: nil, bundle: nil)
         tabbarController.addChildViewController(mainNav)
         tabbarController.addChildViewController(statNav)
-        tabbarController.addChildViewController(editNav)
+        tabbarController.addChildViewController(historyNav)
         tabbarController.selectedIndex = 0
         
         window?.rootViewController = tabbarController
