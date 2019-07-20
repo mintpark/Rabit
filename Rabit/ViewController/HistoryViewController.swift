@@ -16,6 +16,8 @@ final class HistoryViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.className())

@@ -17,6 +17,8 @@ final class StatisticViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(StatisticTableViewCell.self, forCellReuseIdentifier: StatisticTableViewCell.className())
