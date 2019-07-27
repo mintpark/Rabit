@@ -13,6 +13,7 @@
 		040A49222239F2E1008C7E03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040A49202239F2E1008C7E03 /* LaunchScreen.storyboard */; };
 		040A492B2239FF90008C7E03 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A49292239FF90008C7E03 /* MainTableViewCell.swift */; };
 		0410AD45223F9D900021F91A /* HabitsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410AD44223F9D900021F91A /* HabitsDataManager.swift */; };
+		04121CA222E9334400AAE28D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04121CA122E9334400AAE28D /* DateUtils.swift */; };
 		044ECB85223B51CA00227991 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044ECB83223B51CA00227991 /* AddViewController.swift */; };
 		044ECB86223B51CA00227991 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044ECB84223B51CA00227991 /* AddViewController.xib */; };
 		04696D1422C996A000247A8E /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04696D1322C996A000247A8E /* LoginManager.swift */; };
@@ -35,6 +36,7 @@
 		040A49232239F2E1008C7E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040A49292239FF90008C7E03 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		0410AD44223F9D900021F91A /* HabitsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsDataManager.swift; sourceTree = "<group>"; };
+		04121CA122E9334400AAE28D /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		044ECB83223B51CA00227991 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		044ECB84223B51CA00227991 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		04696D1322C996A000247A8E /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				04696D1722CB62EE00247A8E /* Constants.swift */,
+				04121CA122E9334400AAE28D /* DateUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				040A491A2239F2E1008C7E03 /* MainViewController.swift in Sources */,
 				040A492B2239FF90008C7E03 /* MainTableViewCell.swift in Sources */,
 				044ECB85223B51CA00227991 /* AddViewController.swift in Sources */,
+				04121CA222E9334400AAE28D /* DateUtils.swift in Sources */,
 				04856B8522DC0EF4003585CB /* StatisticViewController.swift in Sources */,
 				040A49182239F2E1008C7E03 /* AppDelegate.swift in Sources */,
 				04696D1822CB62EE00247A8E /* Constants.swift in Sources */,

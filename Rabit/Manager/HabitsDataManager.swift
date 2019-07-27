@@ -13,6 +13,7 @@ class Habit: Codable {
     var isFinished: Bool = false
     var startDate: Date = Date()
     var endDate: Date = Date()
+    var repeats: [DateUtils.DayOfWeek] = []
     
     init(title: String, isFinished: Bool, startDate: Date, endDate: Date) {
         self.title = title
