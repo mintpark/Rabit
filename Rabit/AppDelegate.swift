@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let mainVC = MainViewController(nibName: MainViewController.className(), bundle: nil)
@@ -36,9 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         historyNav.pushViewController(historyVC, animated: true)
         
         let tabbarController = UITabBarController(nibName: nil, bundle: nil)
-        tabbarController.addChildViewController(mainNav)
-        tabbarController.addChildViewController(statNav)
-        tabbarController.addChildViewController(historyNav)
+        tabbarController.addChild(mainNav)
+        tabbarController.addChild(statNav)
+        tabbarController.addChild(historyNav)
         tabbarController.selectedIndex = 0
         
         window?.rootViewController = tabbarController
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if KOSession.isKakaoAccountLoginCallback(url) {
             return KOSession.handleOpen(url)
         } else {

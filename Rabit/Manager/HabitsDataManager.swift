@@ -22,20 +22,30 @@ class Habit: Codable {
         self.endDate = endDate
     }
     
-    required convenience init(coder aDecoder: NSCoder) {
-        let title = aDecoder.decodeObject(forKey: "title") as! String
-        let isFinished = aDecoder.decodeObject(forKey: "isFinished") as! Bool
-        let startDate = aDecoder.decodeObject(forKey: "startDate") as! Date
-        let endDate = aDecoder.decodeObject(forKey: "endDate") as! Date
-        
-        self.init(title: title, isFinished: isFinished, startDate: startDate, endDate: endDate)
+    enum CodingKeys: String, CodingKey {
+        case title
+        case isFinished
+        case startDate
+        case endDate
+        case repeats
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(title, forKey: "title")
-        aCoder.encode(isFinished, forKey: "isFinished")
-        aCoder.encode(startDate, forKey: "startDate")
-        aCoder.encode(endDate, forKey: "endDate")
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        try container.encode(isFinished, forKey: .isFinished)
+        try container.encode(startDate, forKey: .startDate)
+        try container.encode(endDate, forKey: .endDate)
+        try container.encode(repeats, forKey: .repeats)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        title = try values.decode(String.self, forKey: .title)
+        isFinished = try values.decode(Bool.self, forKey: .isFinished)
+        startDate = try values.decode(Date.self, forKey: .startDate)
+        startDate = try values.decode(Date.self, forKey: .startDate)
+        repeats = try values.decode([DateUtils.DayOfWeek].self, forKey: .repeats)
     }
     
     func changeIsFinished() {

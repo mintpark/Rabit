@@ -90,7 +90,7 @@ final class StatisticTableViewCell: UITableViewCell {
     private lazy var titleLabel = UILabel(frame: .zero)
     private lazy var ratioLabel = UILabel(frame: .zero)
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubview(titleLabel)

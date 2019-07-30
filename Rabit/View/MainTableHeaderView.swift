@@ -26,7 +26,7 @@ final class MainTableHeaderView: UITableViewHeaderFooterView {
         
         stackView = UIStackView(arrangedSubviews: dateViews)
         stackView.axis = .horizontal
-        stackView.distribution = UIStackViewDistribution.fillEqually
+        stackView.distribution = UIStackView.Distribution.fillEqually
         stackView.spacing = 0
         stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false

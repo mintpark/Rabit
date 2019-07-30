@@ -9,7 +9,7 @@
 import Foundation
 
 struct DateUtils: Codable {
-    enum DayOfWeek: Int, CaseIterable {
+    enum DayOfWeek: Int, CaseIterable, Codable {
         case Sun = 1, Mon, Tue, Wed, Thur, Fri, Sat
     }
     private let dayOfWeekString = ["", "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
