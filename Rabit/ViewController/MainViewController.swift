@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var habits: [Habit]? // = HabitsDataManager.shared.habits    // 값을 참조하기만 할 뿐, 함수를 실행하지는 않는구나.
+    private var habits: [Habit]? = HabitsDataManager.shared.habits
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        habits = HabitsDataManager.shared.habits    // MARK: refactor
         tableView.reloadData()
     }
     
