@@ -14,7 +14,11 @@ class MainTableViewCell: UITableViewCell {
     static let margin: CGFloat = 16
     
     private lazy var titleLabel = UILabel()
-    private lazy var finishImageView = UIImageView(image: UIImage(named: "check"))
+    private lazy var finishImageView: UIImageView = {
+        let v = UIImageView(image: UIImage(named: "check"))
+        v.contentMode = .scaleAspectFit
+        return v
+    }()
     
     var viewModel: Habit? {
         didSet {
@@ -37,8 +41,8 @@ class MainTableViewCell: UITableViewCell {
         
         addSubview(finishImageView)
         finishImageView.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
-            make.width.equalTo(40)
+            make.height.equalTo(24)
+            make.width.equalTo(24)
             make.trailing.equalTo(-MainTableViewCell.margin)
             make.centerY.equalToSuperview()
         }

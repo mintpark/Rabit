@@ -22,8 +22,9 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.className())
         tableView.register(MainTableHeaderView.self, forHeaderFooterViewReuseIdentifier: MainTableHeaderView.className())
-    
-        let addBarItem = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addHabit))
+
+        let image = UIImage(named: "plus")?.withRenderingMode(.alwaysOriginal)
+        let addBarItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addHabit))
         self.navigationItem.setRightBarButton(addBarItem, animated: true)
         
         let yearLabelItem = UIBarButtonItem(title: String(format: "%d", MainTableHeaderView.viewModel.year), style: .plain, target: self, action: nil)
